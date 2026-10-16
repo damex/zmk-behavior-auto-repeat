@@ -1,0 +1,27 @@
+// Copyright 2026 Roman Kuzmitskii (@damex)
+// SPDX-License-Identifier: MIT
+
+#include <dt-bindings/zmk/auto_repeat.h>
+
+/ {
+    behaviors {
+        auto_repeat: auto_repeat {
+            compatible = "zmk,behavior-auto-repeat";
+            #binding-cells = <0>;
+            display-name = "Auto Repeat";
+        };
+
+        auto_repeat_speed: auto_repeat_speed {
+            compatible = "zmk,behavior-auto-repeat-speed";
+            #binding-cells = <1>;
+            display-name = "Auto Repeat Speed";
+        };
+
+        /omit-if-no-ref/ auto_repeat_encoder: auto_repeat_encoder {
+            compatible = "zmk,behavior-sensor-rotate";
+            #sensor-binding-cells = <0>;
+            bindings = <&auto_repeat_speed AUTO_REPEAT_FASTER>,
+                       <&auto_repeat_speed AUTO_REPEAT_SLOWER>;
+        };
+    };
+};

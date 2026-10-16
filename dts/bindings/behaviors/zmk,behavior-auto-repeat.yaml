@@ -1,0 +1,37 @@
+# Copyright 2026 Roman Kuzmitskii (@damex)
+# SPDX-License-Identifier: MIT
+---
+description: Hold and press keys to toggle their timed repeat.
+
+compatible: zmk,behavior-auto-repeat
+
+include: zero_param.yaml
+
+properties:
+  interval-ms:
+    type: int
+    default: 50
+    description: Press to press time at boot.
+  tap-ms:
+    type: int
+    default: 10
+    description: Hold time per tap.
+  interval-step-ms:
+    type: int
+    default: 10
+    description: Interval change per faster or slower command.
+  interval-min-ms:
+    type: int
+    default: 20
+    description: Shortest interval, above tap-ms.
+  interval-max-ms:
+    type: int
+    default: 500
+    description: Longest interval.
+  max-active:
+    type: int
+    default: 4
+    description: Keys repeating at once.
+  layers:
+    type: array
+    description: Layers on which every key press starts or stops repeat.

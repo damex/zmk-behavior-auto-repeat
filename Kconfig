@@ -1,0 +1,19 @@
+# Copyright 2026 Roman Kuzmitskii (@damex)
+# SPDX-License-Identifier: MIT
+
+config ZMK_BEHAVIOR_AUTO_REPEAT
+    bool
+    default y
+    depends on DT_HAS_ZMK_BEHAVIOR_AUTO_REPEAT_ENABLED || \
+               DT_HAS_ZMK_BEHAVIOR_AUTO_REPEAT_SPEED_ENABLED
+    depends on !ZMK_SPLIT || ZMK_SPLIT_ROLE_CENTRAL
+    help
+      Auto-repeat behaviors, built on central or non-split keyboards only.
+
+if ZMK_BEHAVIOR_AUTO_REPEAT
+
+module = ZMK_BEHAVIOR_AUTO_REPEAT
+module-str = zmk_behavior_auto_repeat
+source "subsys/logging/Kconfig.template.log_config"
+
+endif

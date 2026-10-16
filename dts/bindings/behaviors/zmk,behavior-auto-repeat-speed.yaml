@@ -1,0 +1,8 @@
+# Copyright 2026 Roman Kuzmitskii (@damex)
+# SPDX-License-Identifier: MIT
+---
+description: Speed every auto-repeat up or down by one step.
+
+compatible: zmk,behavior-auto-repeat-speed
+
+include: one_param.yaml
