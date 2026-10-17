@@ -1,0 +1,61 @@
+// Copyright 2026 Roman Kuzmitskii (@damex)
+// SPDX-License-Identifier: MIT
+
+#include <behaviors.dtsi>
+#include <behaviors/auto_repeat.dtsi>
+#include <dt-bindings/zmk/keys.h>
+#include <dt-bindings/zmk/kscan_mock.h>
+#include <dt-bindings/zmk/pointing.h>
+
+&kscan {
+    rows = <3>;
+    columns = <4>;
+};
+
+&auto_repeat {
+    interval-ms = <50>;
+    tap-ms = <10>;
+    interval-step-ms = <10>;
+    interval-min-ms = <20>;
+    interval-max-ms = <80>;
+    layers = <2>;
+};
+
+/ {
+    keymap {
+        compatible = "zmk,keymap";
+
+        default_layer: default_layer {
+            bindings = <
+                &auto_repeat
+                &kp A
+                &kp B
+                &kp C
+                &kp LSHIFT
+                &mkp LCLK
+                &auto_repeat_speed AUTO_REPEAT_FASTER
+                &auto_repeat_speed AUTO_REPEAT_SLOWER
+                &mo 1
+                &tog 2
+                &none
+                &none
+            >;
+        };
+
+        other_layer: other_layer {
+            bindings = <
+                &trans &kp X  &trans &trans
+                &trans &trans &trans &trans
+                &trans &trans &trans &trans
+            >;
+        };
+
+        picking_layer: picking_layer {
+            bindings = <
+                &trans &trans &trans &trans
+                &trans &trans &trans &trans
+                &trans &trans &trans &trans
+            >;
+        };
+    };
+};

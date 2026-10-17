@@ -1,0 +1,42 @@
+// Copyright 2026 Roman Kuzmitskii (@damex)
+// SPDX-License-Identifier: MIT
+
+#include "../../keymap.dtsi"
+
+/ {
+    mock_encoder: mock_encoder {
+        compatible = "zmk,sensor-encoder-mock";
+        status = "okay";
+        event-startup-delay = <30>;
+        event-period = <100>;
+        events = <18>;
+    };
+
+    sensors: sensors {
+        compatible = "zmk,keymap-sensors";
+        sensors = <&mock_encoder>;
+        triggers-per-rotation = <20>;
+    };
+};
+
+&default_layer {
+    sensor-bindings = <&auto_repeat_encoder>;
+};
+
+&other_layer {
+    sensor-bindings = <&auto_repeat_encoder>;
+};
+
+&picking_layer {
+    sensor-bindings = <&auto_repeat_encoder>;
+};
+
+&kscan {
+    /delete-property/ exit-after;
+    events = <
+        ZMK_MOCK_PRESS(0,0,5)
+        ZMK_MOCK_PRESS(0,1,5)
+        ZMK_MOCK_RELEASE(0,1,5)
+        ZMK_MOCK_RELEASE(0,0,10)
+    >;
+};

@@ -1,0 +1,6 @@
+# Copyright 2026 Roman Kuzmitskii (@damex)
+# SPDX-License-Identifier: MIT
+---
+name: zmk-behavior-auto-repeat-test-speed-faster-past-due-taps-at-once
+build:
+  cmake: .

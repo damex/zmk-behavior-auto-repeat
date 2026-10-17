@@ -1,0 +1,10 @@
+# Copyright 2026 Roman Kuzmitskii (@damex)
+# SPDX-License-Identifier: MIT
+---
+common:
+  tags:
+    - auto_repeat
+
+tests:
+  auto_repeat.unit:
+    type: unit

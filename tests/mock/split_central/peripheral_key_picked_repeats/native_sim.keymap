@@ -1,0 +1,11 @@
+// Copyright 2026 Roman Kuzmitskii (@damex)
+// SPDX-License-Identifier: MIT
+
+#include "../../keymap.dtsi"
+
+&kscan {
+    /delete-property/ exit-after;
+    events = <
+        ZMK_MOCK_PRESS(2,3,5000)
+    >;
+};

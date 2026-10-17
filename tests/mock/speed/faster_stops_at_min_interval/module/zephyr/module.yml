@@ -1,0 +1,6 @@
+# Copyright 2026 Roman Kuzmitskii (@damex)
+# SPDX-License-Identifier: MIT
+---
+name: zmk-behavior-auto-repeat-test-speed-faster-stops-at-min-interval
+build:
+  cmake: .
