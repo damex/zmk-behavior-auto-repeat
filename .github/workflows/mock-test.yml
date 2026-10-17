@@ -11,7 +11,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          path: zmk-feature-split-esb
+          path: zmk-behavior-auto-repeat
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
@@ -26,4 +26,4 @@ jobs:
         working-directory: zmk
       - run: pip install -r zmk/zephyr/scripts/requirements-base.txt
       - run: make mock-test ZMK_APP=${{ github.workspace }}/zmk/app
-        working-directory: zmk-feature-split-esb
+        working-directory: zmk-behavior-auto-repeat

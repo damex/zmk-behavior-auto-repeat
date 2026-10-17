@@ -15,7 +15,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          path: zmk-feature-split-esb
+          path: zmk-behavior-auto-repeat
       - uses: actions/checkout@v4
         with:
           repository: zmkfirmware/zephyr
@@ -31,4 +31,4 @@ jobs:
             zephyr/scripts/requirements-run-test.txt
       - run: pip install -r zephyr/scripts/requirements-base.txt -r zephyr/scripts/requirements-build-test.txt -r zephyr/scripts/requirements-run-test.txt
       - run: make ${{ inputs.target }}
-        working-directory: zmk-feature-split-esb
+        working-directory: zmk-behavior-auto-repeat
