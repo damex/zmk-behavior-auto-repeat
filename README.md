@@ -15,7 +15,7 @@ Add it to your `config/west.yml`:
   projects:
     - name: zmk-behavior-auto-repeat
       remote: damex
-      revision: v0.1.0
+      revision: v0.1.1
 ```
 Then `west update`.
 Local checkout: `-DZMK_EXTRA_MODULES=<path>/zmk-behavior-auto-repeat`.
