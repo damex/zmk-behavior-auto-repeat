@@ -32,6 +32,10 @@ properties:
     type: int
     default: 4
     description: Keys repeating at once.
+  tapping-term-ms:
+    type: int
+    default: 200
+    description: Longest lone modifier press that still picks it.
   layers:
     type: array
     description: Layers on which every key press starts or stops repeat.

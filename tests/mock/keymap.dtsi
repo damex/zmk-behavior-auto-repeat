@@ -18,6 +18,7 @@
     interval-step-ms = <10>;
     interval-min-ms = <20>;
     interval-max-ms = <80>;
+    tapping-term-ms = <200>;
     layers = <2>;
 };
 

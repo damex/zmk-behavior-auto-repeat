@@ -3,8 +3,8 @@
 
 /*
  * Mock case on shared keymap, real auto-repeat module.
- * Exits 0 once shift pressed alone while auto_repeat is held types once and never repeats.
- * Exits 1 on a repeated shift.
+ * Exits 0 once shift held alone past tapping-term-ms while auto_repeat is held stays unpicked.
+ * Exits 1 on timed tap of shift.
  */
 
 #include <stddef.h>
@@ -20,15 +20,16 @@
 #include "key_record.h"
 #include "mock.h"
 
-#define VERDICT_MS 300
+#define VERDICT_MS 500
 
 static void verdict_handler(struct k_work *work) {
     ARG_UNUSED(work);
-    mock_check(key_record_position_press_ms(LEFT_SHIFT_POSITION, 0) != KEY_RECORD_ABSENT_MS,
-               "shift pressed while auto_repeat is held");
+    int64_t press_ms = key_record_keycode_ms(KEYCODE_LEFT_SHIFT, true, 0);
+    int64_t release_ms = key_record_keycode_ms(KEYCODE_LEFT_SHIFT, false, 0);
+    mock_check(press_ms != KEY_RECORD_ABSENT_MS, "shift pressed while auto_repeat is held");
+    mock_check(release_ms - press_ms > TAPPING_TERM_MS, "shift held past tapping-term-ms");
     mock_check(key_record_keycode_count(KEYCODE_LEFT_SHIFT, true) == 1, "shift pressed once");
-    mock_check(key_record_keycode_count(KEYCODE_LEFT_SHIFT, false) == 1, "shift released once");
-    printk("PASS: all %u lone modifier checks\n", (unsigned int)mock_checks_passed());
+    printk("PASS: all %u long modifier hold checks\n", (unsigned int)mock_checks_passed());
     exit(0);
 }
 static K_WORK_DELAYABLE_DEFINE(verdict_work, verdict_handler);

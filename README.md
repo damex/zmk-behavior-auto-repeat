@@ -38,9 +38,11 @@ Bind `&auto_repeat` on any key:
 - Modifiers held at pick time repeat with key, so holding `&auto_repeat` and Shift while
   pressing A repeats Shift+A.
   `&mkp` buttons repeat without modifiers.
+- Hold `&auto_repeat` and tap modifier alone: modifier repeats from its release.
+  Modifier held past `tapping-term-ms` or before another key stays unpicked.
 - Repeat keeps binding from pick time, whatever layer is active later.
 
-Keys bound to `&kp`, modifiers aside, and buttons bound to `&mkp` get picked.
+Keys bound to `&kp` and buttons bound to `&mkp` get picked.
 Other bindings work as usual.
 `&mkp` needs pointing in your `.conf`:
 ```conf
@@ -92,6 +94,7 @@ Tune `&auto_repeat` in your keymap file:
 | `interval-min-ms` | 20 | shortest interval, above `tap-ms` |
 | `interval-max-ms` | 500 | longest interval |
 | `max-active` | 4 | keys repeating at once |
+| `tapping-term-ms` | 200 | longest lone modifier press that still picks it |
 | `layers` | none | layers on which every key press starts or stops repeat |
 
 | command | effect |

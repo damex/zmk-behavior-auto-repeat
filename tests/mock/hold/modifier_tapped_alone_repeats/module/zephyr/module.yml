@@ -1,6 +1,6 @@
 # Copyright 2026 Roman Kuzmitskii (@damex)
 # SPDX-License-Identifier: MIT
 ---
-name: zmk-behavior-auto-repeat-test-hold-modifier-alone-is-not-picked
+name: zmk-behavior-auto-repeat-test-hold-modifier-tapped-alone-repeats
 build:
   cmake: .
