@@ -11,8 +11,10 @@ MOCK_CASES += \
 	hold/full_slots_refuse_another_key \
 	hold/key_typed_during_tap_gets_no_modifier \
 	hold/keys_after_release_type_normally \
-	hold/modifier_alone_is_not_picked \
 	hold/modifier_at_pick_repeats_with_key \
+	hold/modifier_held_alone_past_term_is_not_picked \
+	hold/modifier_held_for_key_is_not_picked \
+	hold/modifier_tapped_alone_repeats \
 	hold/mouse_button_repeats_at_interval \
 	hold/picked_key_again_stops_it \
 	hold/picked_key_repeats_at_interval \

@@ -31,3 +31,4 @@
 #define INTERVAL_STEP_MS DT_PROP(AUTO_REPEAT_NODE, interval_step_ms)
 #define INTERVAL_MIN_MS DT_PROP(AUTO_REPEAT_NODE, interval_min_ms)
 #define INTERVAL_MAX_MS DT_PROP(AUTO_REPEAT_NODE, interval_max_ms)
+#define TAPPING_TERM_MS DT_PROP(AUTO_REPEAT_NODE, tapping_term_ms)
